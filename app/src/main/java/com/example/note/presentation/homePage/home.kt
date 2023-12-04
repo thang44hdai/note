@@ -31,6 +31,11 @@ import androidx.navigation.NavController
 import com.example.note.R
 import com.example.note.data.item
 import com.example.note.ui.theme.OrangeYellow2
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -38,6 +43,14 @@ import com.example.note.ui.theme.OrangeYellow2
 fun home(
     nav: NavController
 ) {
+    var title: String ="Welcome"
+    val database :DatabaseReference = FirebaseDatabase.getInstance().getReference()
+    database.child("users").child("name").get().addOnSuccessListener {
+//        Log.i("firebase", "Got value ${it.value}")
+        title = it.value.toString()
+    }.addOnFailureListener{
+
+    }
     Scaffold(
         topBar = {
             Box(modifier = Modifier.padding(bottom = 10.dp)) {
@@ -55,7 +68,7 @@ fun home(
                         .padding(bottom = 5.dp)
                 ) {
                     Text(
-                        text = "Good Morning",
+                        text = title,
                         style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold),
                         color = Color.Black
                     )
