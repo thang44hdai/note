@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.note.data.task_item
+import com.example.note.domain.operation
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -45,8 +46,7 @@ fun add_note(
     var timeController by remember {
         mutableStateOf("")
     }
-    var database: DatabaseReference
-    database = FirebaseDatabase.getInstance().getReference()
+    val operation = operation()
 
     Box(
         modifier = Modifier
@@ -110,7 +110,7 @@ fun add_note(
                         timeController,
                         descriptionController
                     )
-                    database.child("task").setValue(x)
+                    operation.add(x)
                     nav.popBackStack()
                     dateController = ""
                     timeController = ""
