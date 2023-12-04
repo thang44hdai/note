@@ -16,5 +16,8 @@ fun navigation() {
         composable("information"){
             information(nav)
         }
+        composable("add_note"){
+            add_note(nav)
+        }
     }
 }

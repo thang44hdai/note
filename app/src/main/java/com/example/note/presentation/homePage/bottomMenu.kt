@@ -23,10 +23,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.note.data.item
 import com.example.note.ui.theme.AquaBlue
-import com.example.note.ui.theme.ButtonBlue
-import com.example.note.ui.theme.DeepBlue
 import com.example.note.ui.theme.OrangeYellow2
 
 @Composable
@@ -43,7 +44,7 @@ fun BottomMenu(
     Row(
         horizontalArrangement = Arrangement.SpaceAround,
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxWidth().padding(top = 5.dp)
     ) {
         items.forEachIndexed { index, item ->
             BottomMenuItem(
@@ -92,7 +93,8 @@ fun BottomMenuItem(
         }
         Text(
             text = title,
-            color = if (isSelected) activeTextColor else inactiveTextColor
+            color = if (isSelected) activeTextColor else inactiveTextColor,
+            style = TextStyle(fontWeight = FontWeight.Bold)
         )
     }
 }
