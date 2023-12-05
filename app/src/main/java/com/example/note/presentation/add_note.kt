@@ -4,8 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -26,8 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.note.data.task_item
 import com.example.note.domain.operation
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -90,7 +86,6 @@ fun add_note(
                         Text(text = "Date:")
                     },
                     modifier = Modifier.padding(2.5.dp)
-
                 )
                 TextField(
                     value = descriptionController,
@@ -106,9 +101,9 @@ fun add_note(
                 Button(onClick = {
                     val x = task_item(
                         dateController,
-                        titleController,
+                        descriptionController,
                         timeController,
-                        descriptionController
+                        titleController
                     )
                     operation.add(x)
                     nav.popBackStack()

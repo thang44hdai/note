@@ -1,6 +1,7 @@
 package com.example.note.presentation.homePage
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,6 +17,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,6 +42,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.getValue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -43,14 +50,20 @@ import com.google.firebase.database.ValueEventListener
 fun home(
     nav: NavController
 ) {
-    var title: String ="Welcome"
-    val database :DatabaseReference = FirebaseDatabase.getInstance().getReference()
-    database.child("users").child("name").get().addOnSuccessListener {
-//        Log.i("firebase", "Got value ${it.value}")
-        title = it.value.toString()
-    }.addOnFailureListener{
-
+    var title by remember {
+        mutableStateOf("")
     }
+    val database: DatabaseReference = FirebaseDatabase.getInstance().getReference()
+    database.child("user").addValueEventListener(object : ValueEventListener {
+        override fun onDataChange(snapshot: DataSnapshot) {
+            title = snapshot.child("name").getValue().toString()
+            println(title)
+        }
+        override fun onCancelled(error: DatabaseError) {
+            TODO("Not yet implemented")
+        }
+
+    })
     Scaffold(
         topBar = {
             Box(modifier = Modifier.padding(bottom = 10.dp)) {
