@@ -1,9 +1,13 @@
 package com.example.note.presentation.homePage
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +21,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,14 +34,24 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.note.data.task_item
 import com.example.note.domain.operation
+import kotlinx.coroutines.launch
 
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun task(item: task_item) {
-    Box(Modifier.clickable {
-        val dele = operation()
-        dele.delete(item)
-    }) {
+
+
+    Box(
+        Modifier.combinedClickable(
+            onLongClick = {
+                val dele = operation()
+                dele.delete(item)
+            },
+            onClick = {
+
+            })
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
