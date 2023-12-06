@@ -42,7 +42,7 @@ fun notiPermission(context: Context) {
                 },
                 modifier = Modifier.align(Alignment.Center)
             ) {
-                Text(text = "Go to Setting")
+                Text(text = "Đề nghị đồng chí cấp quyền truy cập thông báo bằng cách ấn vào nút này")
             }
         }
     }
