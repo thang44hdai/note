@@ -79,5 +79,6 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.5.3")
     implementation("androidx.compose.runtime:runtime-livedata:1.1.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    implementation("com.google.accompanist:accompanist-permissions:0.28.0")
 
 }
