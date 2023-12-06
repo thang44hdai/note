@@ -9,6 +9,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.note.domain.notiPermission
 import com.example.note.ui.theme.NoteTheme
+import com.example.note.ui.theme.Purple40
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

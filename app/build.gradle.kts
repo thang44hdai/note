@@ -80,5 +80,6 @@ dependencies {
     implementation("androidx.compose.runtime:runtime-livedata:1.1.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
     implementation("com.google.accompanist:accompanist-permissions:0.28.0")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
 
 }

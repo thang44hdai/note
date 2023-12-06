@@ -46,5 +46,4 @@ fun notiPermission(context: Context) {
             }
         }
     }
-
 }
