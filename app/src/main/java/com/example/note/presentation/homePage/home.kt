@@ -15,11 +15,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -46,13 +48,18 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.note.R
+import com.example.note.data.EntertainmentItem
 import com.example.note.data.item
+import com.example.note.data.task_item
 import com.example.note.ui.theme.Beige1
 import com.example.note.ui.theme.ButtonBlue
 import com.example.note.ui.theme.DeepBlue
 import com.example.note.ui.theme.OrangeYellow2
 import com.example.note.ui.theme.Purple40
+import com.example.note.ui.theme.add_color
+import com.example.note.ui.theme.bg_color
 import com.example.note.ui.theme.fontText
+import com.example.note.ui.theme.task_color
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -85,30 +92,57 @@ fun home(
         }
 
     })
+
     Scaffold(
         topBar = {
             Box(
                 modifier = Modifier
                     .padding(bottom = 10.dp)
                     .clip(RoundedCornerShape(bottomStart = 15.dp, bottomEnd = 15.dp))
-                    .background(Purple40)
+                    .background(bg_color)
                     .fillMaxWidth()
                     .height(250.dp)
             ) {
                 Column {
                     greetingSection(title, chuc)
-                    LazyRow(modifier = Modifier.padding(horizontal = 5.dp)) {
-                        items(10) {
-                            Box(
-                                modifier = Modifier.padding(top = 50.dp)
-                                    .padding(horizontal = 5.dp)
-                                    .height(100.dp)
-                                    .width(80.dp)
-                                    .clip(RoundedCornerShape(10.dp))
-                                    .background(Beige1)
-                            )
-                        }
-                    }
+                    entertainment()
+//                    LazyRow(modifier = Modifier.padding(horizontal = 5.dp)) {
+//                        items(list_entertainment.size) {
+//                            Box(
+//                                modifier = Modifier
+//                                    .padding(top = 50.dp)
+//                                    .padding(horizontal = 5.dp)
+//                                    .height(100.dp)
+//                                    .width(80.dp)
+//                                    .clip(RoundedCornerShape(10.dp))
+//                                    .background(Beige1)
+//                            ) {
+//                                Text(
+//                                    text = list_entertainment[it].title,
+//                                    color = Color.White,
+//                                    style = TextStyle(fontSize = 10.sp)
+//                                )
+//                            }
+////                            Column {
+////                                Box(
+////                                    modifier = Modifier
+////                                        .padding(top = 50.dp)
+////                                        .padding(horizontal = 5.dp)
+////                                        .height(100.dp)
+////                                        .width(80.dp)
+////                                        .clip(RoundedCornerShape(10.dp))
+////                                        .background(Beige1)
+////                                ) {
+////
+////                                }
+////                                Text(
+////                                    text = list_entertainment[it].title,
+////                                    color = Color.White,
+////                                    style = TextStyle(fontSize = 10.sp)
+////                                )
+////                            }
+//                        }
+//                    }
                 }
 
 
@@ -117,7 +151,7 @@ fun home(
         floatingActionButton = {
             Box(modifier = Modifier
                 .clip(CircleShape)
-                .background(OrangeYellow2)
+                .background(add_color)
                 .clickable {
                     nav.navigate("add_note")
                 }
@@ -131,6 +165,11 @@ fun home(
             }
         },
         bottomBar = {
+            Divider(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.Black)
+            )
             BottomMenu(
                 items = listOf(
                     item("Home", R.drawable.ic_home),
@@ -151,7 +190,7 @@ fun greetingSection(name: String, chuc: String) {
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 10.dp)
+            .padding(top = 10.dp)
             .padding(horizontal = 5.dp)
     ) {
         Column {

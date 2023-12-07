@@ -10,12 +10,15 @@ import androidx.compose.ui.Modifier
 import com.example.note.domain.notiPermission
 import com.example.note.ui.theme.NoteTheme
 import com.example.note.ui.theme.Purple40
+import com.example.note.ui.theme.bg_color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            window.statusBarColor = getColor(R.color.status_bar)
+            window.navigationBarColor = getColor(R.color.white)
             NoteTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(

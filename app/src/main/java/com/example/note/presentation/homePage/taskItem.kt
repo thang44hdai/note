@@ -34,14 +34,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.note.data.task_item
 import com.example.note.domain.operation
+import com.example.note.ui.theme.Beige1
+import com.example.note.ui.theme.task_color
 import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun task(item: task_item) {
-
-
     Box(
         Modifier.combinedClickable(
             onLongClick = {
@@ -59,22 +59,10 @@ fun task(item: task_item) {
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(start = 5.dp)
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(start = 60.dp)
             ) {
-                Text(
-                    text = "${item.time}",
-                    style = TextStyle(fontSize = 12.sp)
-                )
-                Divider(modifier = Modifier.width(40.dp), color = Color.Black)
-                Text(
-                    text = "${item.date}",
-                    style = TextStyle(fontSize = 12.sp)
-                )
-            }
-
-            Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(
                     modifier = Modifier
                         .size(16.dp)

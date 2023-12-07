@@ -29,11 +29,13 @@ import androidx.compose.ui.unit.dp
 import com.example.note.data.item
 import com.example.note.ui.theme.AquaBlue
 import com.example.note.ui.theme.OrangeYellow2
+import com.example.note.ui.theme.add_color
+import com.example.note.ui.theme.bar
 
 @Composable
 fun BottomMenu(
     items: List<item>,
-    activeHighlightColor: Color = OrangeYellow2,
+    activeHighlightColor: Color = add_color,
     activeTextColor: Color = Color.Black,
     inactiveTextColor: Color = AquaBlue,
     initialSelectedItemIndex: Int = 0
@@ -66,7 +68,7 @@ fun BottomMenuItem(
     title: String,
     @DrawableRes icon: Int,
     isSelected: Boolean = false,
-    activeHighlightColor: Color = OrangeYellow2,
+    activeHighlightColor: Color = add_color,
     activeTextColor: Color = Color.Black,
     inactiveTextColor: Color = AquaBlue,
     onItemClick: () -> Unit
@@ -82,7 +84,7 @@ fun BottomMenuItem(
             contentAlignment = Alignment.Center,
             modifier = Modifier
                 .clip(RoundedCornerShape(10.dp))
-                .background(if (isSelected) activeHighlightColor else Color.Transparent)
+                .background(if (isSelected) activeHighlightColor else bar)
                 .padding(15.dp)
         ) {
             Icon(
