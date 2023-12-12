@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.tutorial.Onboarding1Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv2.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ようこそ !"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/ln2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv2.1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv2.2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="どこに出勤したか伝えることができる" />
+
+            <ImageView
+                android:id="@+id/imv2.1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_ob2" />
+
+            <TextView
+                android:id="@+id/t2.3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="出勤場所を会社に共有するには、位置情報の利用を許可してください。\n※この設定はiPhoneの設定アプリで後から変更できます。" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="次へ" />
+    </RelativeLayout>
+</FrameLayout>

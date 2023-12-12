@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.tutorial.Onboarding1Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ようこそ !"
+            android:textColor="@color/app_primary"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:id="@+id/ln1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv1.1"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv1.3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="濱畑 浄介 様" />
+
+            <ImageView
+                android:id="@+id/imv1.1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_ob1" />
+
+            <TextView
+                android:id="@+id/tv1.4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="このアプリからXsionへ\n簡単にアクセスできます"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="次へ" />
+    </RelativeLayout>
+</FrameLayout>

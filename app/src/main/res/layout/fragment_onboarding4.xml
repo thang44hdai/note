@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.tutorial.Onboarding1Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv4.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="もっと便利に"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/ln4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv4.1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv4.2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="会社が契約しているオプションに応じて機能が増える" />
+
+            <ImageView
+                android:id="@+id/imv4.1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_ob4" />
+
+            <TextView
+                android:id="@+id/tv4.4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="機能の詳細は公式ホームページをご覧ください。" />
+
+            <TextView
+                android:id="@+id/tv4.5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xsion製品紹介ページへ"
+                android:textColor="@color/app_primary" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="次へ" />
+    </RelativeLayout>
+</FrameLayout>
